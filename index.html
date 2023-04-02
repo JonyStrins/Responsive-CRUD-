@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="">
+        <input type="text" id="txtLastName" placeholder="LastName">
+        <input type="text" id="txtFirstName" placeholder="FirstName">
+        <input type="text" id="txtTitle" placeholder="Title">
+        <label for="cboTitle">
+            Title of Courtesy
+        </label>
+        <select name="cboTitle" id="cboTitle">
+            <option value="Sr">Sr</option>
+            <option value="Sra">Sra</option>
+            <option value="Srta">Srta</option>
+            <option value="Dr">Dr</option>
+            <option value="Ing">Ing</option>
+            <option value="Etc.">Etc.</option>
+        </select>
+        <label for="txtBirthDate">BirthDate</label>
+        <input type="date" name="" id="txtBirthDate">      
+        <label for="txtHireDate">HireDate</label>
+        <input type="date" name="" id="txtBirthDate">
+        <input type="text" id="txtAddress" placeholder="Address">
+        <input type="text" id="txtCity" placeholder="City">
+        <label for="cboRegion">
+            Region
+        </label>
+        <select name="cboRegion" id="cboRegion">
+            <option value="Sr">Norte</option>
+            <option value="Sra">Sur</option>
+            <option value="Srta">Este</option>
+            <option value="Dr">Oeste</option>
+        </select>
+        <input type="text" name="" id="txtCP" placeholder="PostalCode">
+        <input type="text" id="txtCountry" placeholder="Country">
+        <input type="number" name="" id="txtExt" placeholder="Extension">
+        <input type="number" id="txtPhone" placeholder="HomePhone">
+        <input type="email" name="" id="txtEmail" placeholder="email">
+        <input type="text" id="txtReportsTo" placeholder="ReportsTo">
+        <button onclick="agregar()">Agregar</button>
+    </form>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
