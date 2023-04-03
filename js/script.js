@@ -1,10 +1,10 @@
 window.onload = () => {
-    let productos = cargarJson();
-    console.log(productos);
+    let empleados = cargarJson();
+    console.log(empleados);
 }
 
 function cargarJson() {
-    var lista = localStorage.getItem("productos");
+    var lista = localStorage.getItem("empleados");
     if (lista == null) {
         return [];
     } else {
@@ -12,23 +12,23 @@ function cargarJson() {
     }
 }
 
-function autoIncrement() {
-    let productos = cargarJson();
-
-    if (productos[0]["id"]) {
-        return 1;
-    } else {
-        return productos[0]["id"]++;
-    }
-}
-
 function agregar() {
 
-    let productos = cargarJson();
-    let nuevo = {};
-    nuevo.id = autoIncrement();
-    nuevo.lastName = document.getElementById("txtLastName").value;
-    productos.push(nuevo);
-    localStorage.setItem("productos", JSON.stringify(productos));
-    console.log(productos);
+    let empleados = cargarJson();
+
+    const lastName = document.getElementById("txtLastName").value;
+    const nombre = document.getElementById("txtFirstName").value;
+    const puesto = document.getElementById("txtTitle").value;
+    const tituloDeCortecia = document.getElementById("cboTitle").value;
+    
+    const newEmpleado = {
+        id: empleados.length +1,
+        lastName: lastName,
+        firstName: nombre,
+        title: puesto,
+        titleOfCourtesy: tituloDeCortecia
+    };
+
+    empleados.push(newEmpleado);
+    localStorage.setItem("empleados", JSON.stringify(empleados));
 }
