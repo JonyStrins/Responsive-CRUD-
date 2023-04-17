@@ -72,8 +72,36 @@ function agregar() {
         reportsTo: reportsTo
     };
 
-    console.log(newEmpleado);
-
     empleados.push(newEmpleado);
     localStorage.setItem("empleados", JSON.stringify(empleados));
+
+    // Actualizar la tabla DataTable
+    const table = $('#tblEmpleados').DataTable();
+    table.clear();
+    table.rows.add(empleados);
+    table.draw();
+
+    //Metodo Alternativo
+    // destruir la DataTable existente y volver a crearla con los nuevos datos
+    // $('#tblEmpleados').DataTable().destroy();
+    // $('#tblEmpleados').DataTable({
+    //     data: empleados,
+    //     columns: [
+    //         { title: 'lastName' },
+    //         { title: 'nombre' },
+    //         { title: 'puesto' },
+    //         { title: 'tituloDeCortecia' },
+    //         { title: 'birthdate' },
+    //         { title: 'hiredate' },
+    //         { title: 'address' },
+    //         { title: 'city' },
+    //         { title: 'region' },
+    //         { title: 'cp' },
+    //         { title: 'country' },
+    //         { title: 'ext' },
+    //         { title: 'phone' },
+    //         { title: 'email' },
+    //         { title: 'reportsTo' },
+    //     ],
+    // });
 }
