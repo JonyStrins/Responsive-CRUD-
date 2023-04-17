@@ -1,7 +1,28 @@
-window.onload = () => {
+$(document).ready(function () {
     let empleados = cargarJson();
     console.log(empleados);
-}
+
+    $('#tblEmpleados').DataTable({
+        data: empleados,
+        columns: [
+            { title: 'lastName' },
+            { title: 'nombre' },
+            { title: 'puesto' },
+            { title: 'tituloDeCortecia' },
+            { title: 'birthdate' },
+            { title: 'hiredate' },
+            { title: 'address' },
+            { title: 'city' },
+            { title: 'region' },
+            { title: 'cp' },
+            { title: 'country' },
+            { title: 'ext' },
+            { title: 'phone' },
+            { title: 'email' },
+            { title: 'reportsTo' },
+        ],
+    });
+});
 
 function cargarJson() {
     var lista = localStorage.getItem("empleados");
@@ -20,8 +41,8 @@ function agregar() {
     const nombre = document.getElementById("txtFirstName").value;
     const puesto = document.getElementById("txtTitle").value;
     const tituloDeCortecia = document.getElementById("cboTitle").value;
-    const birthdate = document.getElementById("txtBirthdate").value;
-    const hiredate = document.getElementById("txtHireDate").value;
+    const birthdate = new Date(document.getElementById("txtBirthdate").value);
+    const hiredate = new Date(document.getElementById("txtHireDate").value);
     const address = document.getElementById("txtAddress").value;
     const city = document.getElementById("txtCity").value;
     const region = document.getElementById("cboRegion").value;
@@ -43,13 +64,15 @@ function agregar() {
         address: address,
         city: city,
         region: region,
-        'postal code': cp,
+        postalCode: cp,
         country: country,
         ext: ext,
         phone: phone,
         email: email,
         reportsTo: reportsTo
     };
+
+    console.log(newEmpleado);
 
     empleados.push(newEmpleado);
     localStorage.setItem("empleados", JSON.stringify(empleados));
